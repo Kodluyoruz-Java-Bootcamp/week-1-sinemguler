@@ -1,27 +1,23 @@
 package Shopping;
 
-public class Bill {
-    private int sum;
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    public String toString() {
-        return "Bill{" +
-                "sum=" + sum +
-                '}';
-    }
+public class Bill {
+    private List<Product> productList = new ArrayList<>();
 
     public Bill() {
     }
 
-    public Bill(int sum) {
-        this.sum = sum;
+    public Bill(List<Product> productList) {
+        this.productList = productList;
     }
 
-    public int getSum() {
+    public int getBillSum(List<Product> productList) { //toplam fatura değerini hesaplar
+        int sum = 0;
+        for (Product product : productList) {
+            sum += product.getPrice();
+        }
         return sum;
-    }
-
-    public void setSum(int sum) {
-        this.sum = sum;
     }
 }
